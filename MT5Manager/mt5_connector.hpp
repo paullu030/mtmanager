@@ -80,22 +80,46 @@ private:
         manager->Disconnect();
     }
 
-    void Dealar(crow::request crowreq) {
-        res = manager->Connect(L"20.48.6.157:443", 1006, L"Otso@1234", L"", 0, MT5_TIMEOUT_CONNECT);
+    int Dealar(crow::request crowreq) {
+
+        auto dealerRequest = crow::json::load(crowreq.body);
+        if (!dealerRequest.has("server") || !dealerRequest.has("source_login") || !dealerRequest.has("password")) {
+            cout << " | 400 | DealerSend - server login password should not be empty: " << endl;
+            return -1;
+        }
+        string server = dealerRequest["server"].s();
+        string password = dealerRequest["password"].s();
+        int source_login = dealerRequest["source_login"].i();
+
+
+
+        res = manager->Connect(stringToLPCWSTR(server), source_login, stringToLPCWSTR(password), L"", 0, MT5_TIMEOUT_CONNECT);
+        //res = manager->Connect(L"20.48.6.157:443", 1006, L"Otso@1234", L"", 0, MT5_TIMEOUT_CONNECT);
         if (res != MT_RET_OK) {
             wprintf_s(L"Connection failed (%u)\n", res);
             manager = NULL;
-            return;
+            return -1;
         }
         IMTRequest* mtDealaeRequest = manager->RequestCreate();
         if (mtDealaeRequest == NULL) {
             cout <<"| 400 | DealerSend - requestArr is NULL" << endl;
-            return;
+            return -1;
         }
 
-        auto dealerRequest = crow::json::load(crowreq.body);
         if (!dealerRequest) {
-            return;
+            return -1;
+        }
+
+        if (dealerRequest.has("type")) {
+            string orderType = dealerRequest["type"].s();
+            if (orderType != "") {
+                int iType = stoi(orderType);
+                if (iType < IMTOrder::OP_FIRST || iType > IMTOrder::OP_LAST) {
+                    cout << " | 400 | DealerSend - type error, type: " << iType << endl;
+                    return -1;
+                }
+                mtDealaeRequest->Type(iType);
+            }
         }
         if (dealerRequest.has("type")) {
             string orderType = dealerRequest["type"].s();
@@ -103,7 +127,7 @@ private:
                 int iType = stoi(orderType);
                 if (iType < IMTOrder::OP_FIRST || iType > IMTOrder::OP_LAST) {
                     cout << " | 400 | DealerSend - type error, type: " << iType << endl;
-                    return;
+                    return -1;
                 }
                 mtDealaeRequest->Type(iType);
             }
@@ -137,7 +161,7 @@ private:
                 int iAction = stoi(action);
                 if (iAction < IMTRequest::TA_FIRST || iAction > IMTRequest::TA_LAST) {
                     cout << " | 400 | DealerSend - action error, action: " << iAction << endl;
-                    return;
+                    return -1;
                 }
                 mtDealaeRequest->Action(iAction);
             }
@@ -148,7 +172,7 @@ private:
                 int iVolume = stoi(volume);
                 if (iVolume < 100 || iVolume > MTAPI_VOLUME_MAX) {
                     cout << " | 400 | DealerSend - action error, action: " << iVolume << endl;
-                    return;
+                    return -1;
                 }
                 mtDealaeRequest->Volume(iVolume);
             }
@@ -165,13 +189,14 @@ private:
                     mtDealaeRequest->PriceOrder(stod(price));
                 }
         }
-        cout << "symbol" << LPCWSTRTostring(mtDealaeRequest->Symbol()) << endl;
 
-        res = manager->Connect(L"20.48.6.157:443", 1006, L"Otso@1234", L"", 0, MT5_TIMEOUT_CONNECT);
+        //res = manager->Connect(L"20.48.6.157:443", 1006, L"Otso@1234", L"", 0, MT5_TIMEOUT_CONNECT);
+
+        res = manager->Connect(stringToLPCWSTR(server), source_login, stringToLPCWSTR(password), L"", 0, MT5_TIMEOUT_CONNECT);
         if (res != MT_RET_OK) {
             wprintf_s(L"Connection failed (%u)\n", res);
             manager = NULL;
-            return;
+            return -1;
         }
 
         UINT id = 0;
@@ -188,8 +213,6 @@ private:
                 cout  << mtDealaeRequest->Login() << ": order login " << result->ResultOrder() << " failed. res: " << res << endl;
                 string loginOrOrder = mtDealaeRequest->Action() == IMTRequest::TA_DEALER_POS_EXECUTE ? to_string(mtDealaeRequest->Login()) : to_string(result->Position());
                 cout << loginOrOrder;
-                // dataJSON.append(dot + "{\"login_or_order\":" + loginOrOrder + ",\"res\":" + to_string(res) + "}");
-                //errCode = res;
             }
         }
         else {
@@ -199,7 +222,7 @@ private:
         }
         result->Release();
         result = NULL;
-
+        return 0;
     }
 
     void Subscribe(crow::websocket::connection *conn,string server,int login,string password) {
@@ -217,7 +240,6 @@ private:
         res =manager->Connect(stringToLPCWSTR(server), login, stringToLPCWSTR(password), L"", IMTManagerAPI::PUMP_MODE_REQUESTS, MT5_TIMEOUT_CONNECT);
         //res = manager->Connect(L"20.48.6.157:443", 1006, L"Otso@1234", L"", IMTManagerAPI::PUMP_MODE_REQUESTS, MT5_TIMEOUT_CONNECT);
         if (res != MT_RET_OK) {
-            //cout << GetTime() << " RequestSubscribe [Manager Connection failed] - " << psd->server << ": " << psd->login << " | res: " << res << endl;
             wprintf_s(L"Connection failed (%u)\n", res);
             manager->Unsubscribe(managerSink);
             manager = NULL;
@@ -228,7 +250,6 @@ private:
 
         res =manager->RequestSubscribe(requestSink);
         if (res != MT_RET_OK) {
-            // cout << GetTime() << " RequestSubscribe [RequestSubscribe failed] res: " << res << endl;
            manager->RequestUnsubscribe(requestSink);
            manager->Unsubscribe(managerSink);
            
@@ -239,11 +260,42 @@ private:
         }
 
     }
-    void GetUserData() {
+    int GetUserData(int login,crow::response *resp) {
 
+        IMTUser* user = manager->UserCreate();
+
+        res = manager->Connect(L"20.48.6.157:443", 1006, L"Otso@1234", L"", IMTManagerAPI::PUMP_MODE_REQUESTS, MT5_TIMEOUT_CONNECT);
+        if (res != MT_RET_OK) {
+            cout << "connect failed";
+            return -1;
+        }
+
+        MTAPIRES mtRes = manager->UserRequest(login, user);
+        if (mtRes != MT_RET_OK) {
+            return -1;
+        }
+        stringstream ss;
+        
+        //ss << "{\"type\":\"request_delete\",\"data\":" << RequestToJSON(request) << "}";
+       ss << "{\"type\":\"request_delete\",\"data\":" 
+           <<"{\"login\": "<< user->Login()<<","
+           <<"\"balance\": " << user->Balance() 
+           <<"}"
+           << "}";
+
+
+       // 
+         //crow::json::wvalue respData;
+        // respData["login"] = user->Login();
+       //  respData["balance"] = user->Balance();
+            
+         
+         resp->body.append(ss.str());
+
+         user->Release();
+         user = NULL;
+         manager->Disconnect();
     }
-
-
 };
 
 struct PerSocketData {

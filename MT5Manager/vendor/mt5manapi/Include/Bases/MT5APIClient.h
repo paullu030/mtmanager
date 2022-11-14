@@ -157,7 +157,7 @@ public:
       KYC_STATUS_UNDEFINED                =0,            // undefined
       KYC_STATUS_APPROVED                 =1,            // approved
       KYC_STATUS_DECLINED                 =2,            // declined
-      //--- границы диапазона
+      //--- границ?диапазон?
       KYC_STATUS_FIRST                    =KYC_STATUS_UNDEFINED,
       KYC_STATUS_LAST                     =KYC_STATUS_DECLINED
      };

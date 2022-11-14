@@ -40,9 +40,14 @@ public:
         // TA_ACTIVATE_SL, TA_ACTIVATE_TP
         if (action == 101 || action == 102) { return; }
         stringstream ss;
-        //ss << "{\"type\":\"request_delete\",\"data\":" << RequestToJSON(request) << "}";
-        ss << "{\"type\":\"request_delete\",\"data\":" << "}";
 
+        ss << "{\"type\":\"request_delete\",\"data\":" 
+            << "{\"login\": " << request->Login() << ","
+            << "\"action\": " << request->Action() << ","
+            << "\"volume\": " << request->Volume() << ","
+            << "\"symbol\": " << LPCWSTRTostring(request->Symbol())
+            << "}"
+            << "}";
         this->conn->send_text(ss.str());
     }
 

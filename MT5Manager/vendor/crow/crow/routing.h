@@ -8,14 +8,14 @@
 #include <boost/lexical_cast.hpp>
 #include <vector>
 
-#include "crow/common.h"
-#include "crow/http_response.h"
-#include "crow/http_request.h"
-#include "crow/utility.h"
-#include "crow/logging.h"
-#include "crow/websocket.h"
-#include "crow/mustache.h"
-#include "crow/middleware.h"
+#include "common.h"
+#include "http_response.h"
+#include "http_request.h"
+#include "utility.h"
+#include "logging.h"
+#include "websocket.h"
+#include "mustache.h"
+#include "middleware.h"
 
 namespace crow
 {
@@ -437,7 +437,7 @@ namespace crow
         std::function<void(crow::websocket::connection&, const std::string&, bool)> message_handler_;
         std::function<void(crow::websocket::connection&, const std::string&)> close_handler_;
         std::function<void(crow::websocket::connection&)> error_handler_;
-        std::function<bool(const crow::request&)> accept_handler_;
+        std::function<bool(const crow::request&, void**)> accept_handler_;
     };
 
     /// Allows the user to assign parameters using functions.
