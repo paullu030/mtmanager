@@ -1,0 +1,7 @@
+*
+!x64/Debug/*.exe
+!x64/Debug/*.dll
+!x64/Debug/*.lib
+!*.exe
+!*.dll
+!settings.ini

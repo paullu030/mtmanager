@@ -1,0 +1,119 @@
+﻿  main.cpp
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\query_string.h(117,37): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\query_string.h(370,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\query_string.h(406,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\query_string.h(445,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\utility.h(691,13): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\http_parser_merged.h(589,32): warning C4244: '=': conversion from '__int64' to 'unsigned long', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\http_parser_merged.h(609,32): warning C4244: '=': conversion from '__int64' to 'unsigned long', possible loss of data
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\json.h(1211,39): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\json.h(1671,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\mustache.h(97,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\mustache.h(116,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\mustache.h(118,1): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\mustache.h(221,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\mustache.h(367,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\mustache.h(378,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\mustache.h(390,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\mustache.h(401,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\mustache.h(463,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\mustache.h(563,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(800,70): warning C4244: 'argument': conversion from '__int64' to 'unsigned int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(821,70): warning C4244: 'argument': conversion from '__int64' to 'unsigned int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(842,70): warning C4244: 'argument': conversion from '__int64' to 'unsigned int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(864,1): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(880,1): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(895,1): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(945,53): warning C4267: '+=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(956,45): warning C4267: '+=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(1002,36): warning C4267: '+=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(1005,33): warning C4267: '+=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(1212,1): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(1212,1): warning C4267: 'argument': conversion from 'size_t' to 'uint16_t', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(1259,1): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(1420,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\MT5API\Config\MT5APIConfigFeeder.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (950). Save the file in Unicode format to prevent data loss
+C:\Users\WinX\project\MT5Manager\Manager\MT5API\Config\MT5APIConfigRoute.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (950). Save the file in Unicode format to prevent data loss
+C:\Users\WinX\project\MT5Manager\Manager\MT5API\Config\MT5APIConfigMessenger.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (950). Save the file in Unicode format to prevent data loss
+C:\Users\WinX\project\MT5Manager\Manager\MT5API\Bases\MT5APIClient.h(1,1): warning C4819: The file contains a character that cannot be represented in the current code page (950). Save the file in Unicode format to prevent data loss
+C:\Users\WinX\project\MT5Manager\Manager\mt5_connector.hpp(92,26): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\http_connection.h(473,63): warning C4244: 'argument': conversion from 'unsigned __int64' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\http_connection.h(464): message : while compiling class template member function 'void crow::Connection<Adaptor,Handler>::do_read(void)'
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\http_connection.h(88): message : see reference to function template instantiation 'void crow::Connection<Adaptor,Handler>::do_read(void)' being compiled
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\http_server.h(195): message : see reference to class template instantiation 'crow::Connection<Adaptor,Handler>' being compiled
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\http_server.h(195): message : while compiling class template member function 'void crow::Server<crow::Crow<>,crow::SocketAdaptor>::do_accept(void)'
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\http_server.h(152): message : see reference to function template instantiation 'void crow::Server<crow::Crow<>,crow::SocketAdaptor>::do_accept(void)' being compiled
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\app.h(301): message : see reference to class template instantiation 'crow::Server<crow::Crow<>,crow::SocketAdaptor>' being compiled
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\app.h(280): message : while compiling class template member function 'void crow::Crow<>::run(void)'
+C:\Users\WinX\project\MT5Manager\Manager\main.cpp(111): message : see reference to function template instantiation 'void crow::Crow<>::run(void)' being compiled
+C:\Users\WinX\project\MT5Manager\Manager\main.cpp(43): message : see reference to class template instantiation 'crow::Crow<>' being compiled
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\parser.h(118,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\parser.h(104): message : while compiling class template member function 'bool crow::HTTPParser<crow::Connection<Adaptor,Handler>>::feed(const char *,int)'
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\http_connection.h(473): message : see reference to function template instantiation 'bool crow::HTTPParser<crow::Connection<Adaptor,Handler>>::feed(const char *,int)' being compiled
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\http_connection.h(596): message : see reference to class template instantiation 'crow::HTTPParser<crow::Connection<Adaptor,Handler>>' being compiled
+          with
+          [
+              Adaptor=crow::SocketAdaptor,
+              Handler=crow::Crow<>
+          ]
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\middleware.h(207,76): warning C4244: 'argument': conversion from '_Ty1' to 'int', possible loss of data
+          with
+          [
+              _Ty1=std::chrono::system_clock::rep
+          ]
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\routing.h(576): message : see reference to function template instantiation 'void crow::detail::wrapped_handler_call<main::<lambda_5>,_Ty>(crow::request &,crow::response &,const F &,_Ty &&)' being compiled
+          with
+          [
+              _Ty=crow::black_magic::single_tag_to_type<1>::type,
+              F=main::<lambda_5>
+          ]
+C:\Users\WinX\project\MT5Manager\Manager\main.cpp(109): message : see reference to function template instantiation 'void crow::TaggedRule<crow::black_magic::single_tag_to_type<1>::type>::operator ()<main::<lambda_5>>(Func &&)' being compiled
+          with
+          [
+              Func=main::<lambda_5>
+          ]
+C:\Users\WinX\project\MT5Manager\Manager\main.cpp(104): message : see reference to function template instantiation 'void crow::TaggedRule<crow::black_magic::single_tag_to_type<1>::type>::operator ()<main::<lambda_5>>(Func &&)' being compiled
+          with
+          [
+              Func=main::<lambda_5>
+          ]
+C:\Users\WinX\project\MT5Manager\Manager\vendor\crow\crow\middleware.h(210,54): warning C4244: 'argument': conversion from '_Ty' to 'int', possible loss of data
+          with
+          [
+              _Ty=crow::black_magic::single_tag_to_type<1>::type
+          ]
+C:\Users\WinX\project\MT5Manager\Manager\mt5_connector.hpp(301): warning C4715: 'MTManager::GetUserData': not all control paths return a value
+  Manager.vcxproj -> C:\Users\WinX\project\MT5Manager\Manager\x64\Debug\Manager.exe
